@@ -1,0 +1,115 @@
+// partials
+@use 'base';
+@use 'sass:math';
+
+@mixin theme($theme: DarkGrey) {
+    box-shadow: 1px 1px 10px -3px rgba($theme, 1);
+    color: $theme;
+}
+
+%message-shared {
+    border: 1px solid rgb(194, 194, 194);
+    padding: .3em .5em;
+    color: #333;
+}
+
+// netsting
+nav {
+    background-color: blue;
+    padding: 1em;
+
+    ul {
+        list-style: none;
+        display: flex;
+        gap: 1em;
+        justify-content: center;
+    }
+
+    li {
+        display: inline-block;
+    }
+
+    li {
+        a {
+            text-decoration: none;
+        }
+    }
+
+    ul, a {
+        color: white;
+    }
+}
+
+h1 {
+    text-align: center;
+    margin: 1em 0;
+}
+
+// mixin
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+
+    .card {
+        width: 100%;
+        height: 200px;
+        max-width: 200px;
+        border: 1px solid rgb(206, 206, 206);
+        border-radius: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }
+
+    .card-default {
+        @include theme;
+    }
+
+    .card-primary {
+        @include theme($theme: blue);
+    }
+
+    .card-success {
+        @include theme($theme: lightgreen);
+    }
+}
+
+// extend
+.message {
+    @extend %message-shared;
+}
+
+.error {
+    @extend %message-shared;
+    border-color: red;
+}
+
+.info {
+    @extend %message-shared;
+    border-color: lightblue;
+}
+
+// operators
+$container-width: 960px;
+
+.grid {
+    max-width: $container-width;
+    background-color: #333;
+    border-radius: 8px;
+    margin: 0 auto;
+    padding: 1em;
+    display: flex;
+    gap: 1em;
+
+    .grid-item {
+        color:white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid white;
+        border-radius:4px;
+        height: 100px;
+        width: math.div(320px, $container-width) * 100%;
+    }
+}

@@ -1,0 +1,13 @@
+// variables
+$font-stack: Helvetica, sans-serif;
+$primary-color: rgb(77, 77, 77);
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font: 100% $font-stack;
+    color: $primary-color;
+}
